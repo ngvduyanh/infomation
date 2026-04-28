@@ -3,44 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linkpage Cá Nhân</title>
+    <title>Linkpage Cá Nhân - Duy Anh</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; padding: 20px; margin: 0; }
-        .container { width: 100%; max-width: 450px; background: white; padding: 25px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; }
-        .avatar { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #ddd; margin-bottom: 15px; }
-        h1 { margin: 10px 0; font-size: 24px; }
-        .info-box { background: #f8f9fa; padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: left; font-size: 14px; }
-        .btn { display: block; background: #333; color: white; padding: 12px; margin: 10px 0; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s; }
-        .btn:hover { background: #555; }
-        .spotify-embed { margin-top: 20px; }
-        .support-section { margin-top: 25px; border-top: 1px solid #eee; padding-top: 15px; font-size: 14px; }
+        :root {
+            --wine-color: #722F37; /* Màu đỏ rượu vang */
+            --body-bg: #EDF1F5; /* Màu nền Xám Slate */
+        }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--body-bg); 
+            display: flex; 
+            justify-content: center; 
+            padding: 20px; 
+            margin: 0; 
+        }
+
+        .main-container { 
+            width: 100%; 
+            max-width: 850px; 
+            background: white; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+            overflow: hidden; 
+        }
+
+        .header {
+            position: relative;
+            background-color: var(--wine-color);
+            height: 120px;
+            margin-bottom: 70px;
+        }
+
+        .avatar { 
+            width: 130px; 
+            height: 130px; 
+            border-radius: 50%; 
+            border: 5px solid white; 
+            object-fit: cover; 
+            position: absolute;
+            bottom: -65px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        h1 { text-align: center; margin: 0 0 5px 0; font-size: 26px; color: #222;}
+        .ign-subtitle { text-align: center; color: #666; font-size: 14px; margin-bottom: 25px; font-weight: 500; }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 0 30px 30px 30px;
+        }
+
+        .card {
+            background: #fdfdfd;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #eaeaea;
+        }
+        
+        .card h2 {
+            color: var(--wine-color);
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* Kiểu cho Icon Game */
+        .game-info { display: flex; align-items: center; margin-bottom: 15px; }
+        .game-icon { width: 45px; height: 45px; border-radius: 10px; margin-right: 15px; object-fit: cover; border: 1px solid #eee; background-color: #fff; }
+        .game-details h3 { margin: 0; font-size: 15px; color: #222; }
+        .setting-tag { background: #eee; padding: 2px 8px; border-radius: 5px; font-size: 11px; font-family: monospace; color: #555; margin-top: 3px; display: inline-block; }
+
+        /* Nút chung */
+        .btn { 
+            display: flex; 
+            align-items: center;
+            background: white; 
+            color: #333; 
+            padding: 12px; 
+            margin: 10px 0; 
+            text-decoration: none; 
+            border-radius: 10px; 
+            font-weight: 600; 
+            transition: all 0.3s ease;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+        
+        .btn:hover { 
+            background: var(--wine-color); 
+            color: white; 
+            border-color: var(--wine-color);
+            transform: translateY(-2px);
+        }
+
+        .btn i { margin-right: 12px; font-size: 18px; width: 22px; text-align: center; color: var(--wine-color); }
+        .btn:hover i { color: white; }
+
+        .gear-item { background: #fffafa; border: 1px dashed var(--wine-color); margin-bottom: 8px; }
+
+        @media (max-width: 768px) {
+            .content-grid { grid-template-columns: 1fr; padding: 0 20px 20px 20px; }
+            .main-container { max-width: 450px; }
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <img src="avatar.jpg" alt="Avatar" class="avatar">
-    <h1>Tên Của Bạn</h1>
-    <div class="info-box">
-        <p>🎓 <strong>Học vấn:</strong> ...</p>
-        <p>💼 <strong>Công việc:</strong> ...</p>
-        <p>🎮 <strong>In-game Name:</strong> ...</p>
-        <p>📧 <strong>Liên hệ:</strong> email@example.com</p>
+<div class="main-container">
+    
+    <div class="header">
+        <img src="https://i.postimg.cc/rwqGTfws/122774361-1426033590938482-8771757242854011545-n.jpg" alt="Avatar" class="avatar">
     </div>
 
-    <a href="https://facebook.com" class="btn">Facebook</a>
-    <a href="https://instagram.com" class="btn">Instagram</a>
-    <a href="https://tiktok.com" class="btn">TikTok</a>
-    <a href="https://chotot.com" class="btn">Shop trên Chợ Tốt</a>
+    <h1>Nguyễn Võ Duy Anh</h1>
+    <div class="ign-subtitle">duyanh nè #urbf</div>
 
-    <div class="spotify-embed">
-        <p><strong>Playlist mình đang nghe:</strong></p>
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/..." width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-    </div>
+    <div class="content-grid">
+        
+        <div class="left-column">
+            <div class="card">
+                <h2>Riot Games & Setup</h2>
+                
+                <div class="game-info">
+                    <img src="https://i.postimg.cc/KY8r1TY2/191c62d342811d1a0d3d0528ec35cd2d.jpg" alt="Valorant Icon" class="game-icon">
+                    <div class="game-details">
+                        <h3>Valorant</h3>
+                        <span class="setting-tag">DPI 1600 | Sens 0.2</span>
+                    </div>
+                </div>
 
-    <div class="support-section">
-        <p>💰 <strong>Ủng hộ (Donate):</strong> Bank: 123456789 (Vietcombank)</p>
-        <p>🤝 <strong>Tư vấn/Hỗ trợ:</strong> Nhắn tin trực tiếp qua các kênh trên</p>
+                <div class="game-info">
+                    <img src="https://i.postimg.cc/wvtrsZB7/f8e8b1feff822753a39b21de69259fd6.jpg" alt="LoL & TFT Icon" class="game-icon">
+                    <div class="game-details">
+                        <h3>LoL & TFT</h3>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 13px; font-weight: bold; color: var(--wine-color);">My Gear (Click để mua):</p>
+                <a href="https://shopee.vn/Chu%E1%BB%99t-Gaming-Kh%C3%B4ng-D%C3%A2y-Bluetooth-Attack-Shark-X11-Chip-PRO-PAW3311-C%C3%B3-Dock-S%E1%BA%A1c-LED-22000-DPI-i.12208293.25631038794" class="btn gear-item" target="_blank">
+                    <i class="fas fa-mouse"></i> Chuột Attack Shark X11
+                </a>
+                <a href="https://shopee.vn/-S%E1%BA%B4N-GIAO-NGAY-B%C3%A0n-ph%C3%ADm-c%C6%A1-gaming-MAD60-MAD68-(Mad-60-mad-68)-HE-Rapid-Trigger-1000hz-8000hz-i.44039787.28417391420?extraParams=%7B%22display_model_id%22%3A187969851372%2C%22model_selection_logic%22%3A3%7D&sp_atk=6f428812-cfae-4ed2-a912-c9560e416883&xptdk=6f428812-cfae-4ed2-a912-c9560e416883" class="btn gear-item" target="_blank">
+                    <i class="fas fa-keyboard"></i> Bàn phím Madlion 65
+                </a>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h2>Kết nối với mình</h2>
+                <a href="https://www.facebook.com/ngvo.duyanh" class="btn" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="https://www.instagram.com/nvda_10/" class="btn" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.tiktok.com/@wasduyanh" class="btn" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+                <a href="https://discord.gg/n97htr5q3g" class="btn" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+                <a href="https://locket.cam/itsduyanh" class="btn" target="_blank"><i class="fas fa-camera-retro"></i> Locket</a>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div class="card">
+                <h2>Góc cá nhân</h2>
+                <a href="https://www.chotot.com/user/7ef5f5db66718f43b5e509a598580178#xtatc=INT-1-[Profileview]" class="btn" target="_blank">
+                    <i class="fas fa-shopping-cart"></i> Đang bán một số thứ
+                </a>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h2>Âm nhạc</h2>
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7aMUcfdBdt7T8PxVxFEgvu?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h2>Liên hệ</h2>
+                <p><i class="fas fa-envelope"></i> <strong>Gmail:</strong> ngv.duyanh@gmail.com</p>
+                <p><i class="fas fa-sms"></i> <strong>SĐT:</strong> Liên hệ qua tin nhắn</p>
+                
+                <a href="https://docs.google.com/forms/..." class="btn" style="background: #fdf2f2; border-color: var(--wine-color); color: var(--wine-color);" target="_blank">
+                    <i class="fas fa-user-secret"></i> Gửi form ẩn danh cho mình
+                </a>
+
+                <div style="background: white; border: 1px solid #eee; padding: 15px; border-radius: 10px; display: flex; align-items: center; margin-top: 15px;">
+                    <i class="fas fa-university" style="color: var(--wine-color); font-size: 24px; margin-right: 15px;"></i>
+                    <div>
+                        <span style="display: block; font-size: 12px; color: #777;">Ngân hàng MB Bank</span>
+                        <strong style="font-size: 17px; color: #333;">4520110012001</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
